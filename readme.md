@@ -1,4 +1,3 @@
-==============
 ![FAD0DA04-EA7A-4416-8C11-1B14A54AE4DB](https://user-images.githubusercontent.com/60056670/76921655-e543ae80-6911-11ea-85d4-7524d1fe82b5.jpeg)
 ==============
 ## ・仕様
