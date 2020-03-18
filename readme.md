@@ -1,71 +1,95 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+==============
+![FAD0DA04-EA7A-4416-8C11-1B14A54AE4DB](https://user-images.githubusercontent.com/60056670/76921655-e543ae80-6911-11ea-85d4-7524d1fe82b5.jpeg)
+==============
+## ・仕様
+Connpass APIから情報を取得し、LINE上に表示する勉強会検索用のLINEBOT。
+LINE Messaging APIの仕様上限である10件までの情報を取得。表示する優先度は更新順。
+## ・導入手順
+## 1. LINE Devlopersアカウントを取得
+アカウントを[作成](https://business.line.me)する。
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## 2. LINE Developersに移動し、アクセストークン等を発行
 
-## About Laravel
+チャネル基本設定画面でチャネルシークレットを発行し、Messaging API設定画面でチャネルアクセストークンを発行する。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 3. 各種設定
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+・.envを作成
+<pre>
+$ cp env-example .env
+</pre>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+・.envにLINEチャネルキーを設定
+<pre>
+︙
+"LINE_CHANNEL_SECRET" = xxxxx
+"LINE_ACCESS_TOKEN" = xxxxx
+</pre>
 
-## Learning Laravel
+・APP_KEYを作成
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<pre>
+$php artisan key:generate
+//base64:xxxxx が生成
+</pre>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+・ngrokで動作確認
+<pre>
+$ ngrok http xxxxx
+//デフォルトは8080
+</pre>
 
-## Laravel Sponsors
+## 4a. Herokuにデプロイする場合
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+・Herokuのアカウントを作成し、アプリを新規作成
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Contributing
+・Herokuアプリへの環境変数の設定
+<pre>
+LINE_CHANNEL_SECRET - xxxxx
+LINE_ACCESS_TOKEN - xxxxx
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+//SettingsからReveal Config Varsボタン
+</pre>
 
-## License
+・Herokuの環境変数にAPP_KEYを設定
+<pre>
+$ heroku config:set APP_KEY=base64: xxxxx -a herokuアプリケーション名
+</pre>
+
+## 4b. AWSにデプロイする場合
+・EBにデプロイ
+・Route53でドメインを取得
+・Certificate Managerで証明書を発行
+・ロードバランサーで設定
+(参考URL)
+
+## 5. LINE Console上でWebhookを設定
+<pre>
+https://xxxxx.herokuapp.com/api/meetups
+//Heroku
+
+https://xxxxx/api/meetups
+//AWS
+</pre>
+
+## ・QRコード
+![B909E27D-4072-4F2B-BF49-095F0473CD55](https://user-images.githubusercontent.com/60056670/76936499-64e37480-6936-11ea-9834-92e657e7ca42.jpeg)
+
+LINEアプリで直接[URL](http://line.me/ti/p/@815sztgc)を開く。
+>    – Tools –
+>・PHP 7.3.14
+>・Laravel 6.16.0
+>・Docker 19.03.7
+>・Git 2.21
+>・AWS Elastic Beanstalk
+>・Route53
+>・Certificate Manager
+>・LINE Messaging API (Flex Message)
+>・Connpass API
+>・ngrok
+
+## ・ライセンス
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-     
