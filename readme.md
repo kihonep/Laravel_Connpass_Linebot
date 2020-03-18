@@ -1,5 +1,5 @@
-![FAD0DA04-EA7A-4416-8C11-1B14A54AE4DB](https://user-images.githubusercontent.com/60056670/76921655-e543ae80-6911-11ea-85d4-7524d1fe82b5.jpeg)
-==============
+<img src="https://user-images.githubusercontent.com/60056670/76921655-e543ae80-6911-11ea-85d4-7524d1fe82b5.jpeg" width="506px">
+
 ## ・仕様
 Connpass APIから情報を取得し、LINE上に表示する勉強会検索用のLINEBOT。
 LINE Messaging APIの仕様上限である10件までの情報を取得。表示する優先度は更新順。
