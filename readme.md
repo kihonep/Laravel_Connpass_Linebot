@@ -58,11 +58,11 @@ $ heroku config:set APP_KEY=base64: xxxxx -a herokuアプリケーション名
 </pre>
 
 ## 4b. AWSにデプロイする場合
-・EBにデプロイ
-・Route53でドメインを取得
-・Certificate Managerで証明書の生成
-・ロードバランサーで設定
-(参考URL)
+・EBにデプロイ  
+・Route53でドメインを取得  
+・Certificate Managerで証明書の生成  
+・ロードバランサーで設定  
+(参考URL)  
 
 ## 5. LINE Console上でWebhookを設定
 <pre>
