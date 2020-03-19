@@ -78,7 +78,7 @@ https://xxxxx/api/meetups
 ![B909E27D-4072-4F2B-BF49-095F0473CD55](https://user-images.githubusercontent.com/60056670/76936499-64e37480-6936-11ea-9834-92e657e7ca42.jpeg)
 
 LINEアプリで直接[URL](http://line.me/ti/p/@815sztgc)を開く。
->    – Tools –
+>    – Tools –  
 >・PHP 7.3.14  
 >・Laravel 6.16.0  
 >・Docker 19.03.7  
