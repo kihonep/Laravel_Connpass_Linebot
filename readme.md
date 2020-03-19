@@ -21,8 +21,8 @@ $ cp env-example .env
 ・.envにLINEチャネルキーを設定
 <pre>
 ︙
-"LINE_CHANNEL_SECRET" = xxxxx
-"LINE_ACCESS_TOKEN" = xxxxx
+LINE_CHANNEL_SECRET = xxxxx
+LINE_ACCESS_TOKEN = xxxxx
 </pre>
 
 ・APP_KEYを作成
@@ -60,7 +60,7 @@ $ heroku config:set APP_KEY=base64: xxxxx -a herokuアプリケーション名
 ## 4b. AWSにデプロイする場合
 ・EBにデプロイ
 ・Route53でドメインを取得
-・Certificate Managerで証明書を発行
+・Certificate Managerで証明書の生成
 ・ロードバランサーで設定
 (参考URL)
 
@@ -68,7 +68,8 @@ $ heroku config:set APP_KEY=base64: xxxxx -a herokuアプリケーション名
 <pre>
 https://xxxxx.herokuapp.com/api/meetups
 //Heroku
-
+</pre>
+<pre>
 https://xxxxx/api/meetups
 //AWS
 </pre>
@@ -78,16 +79,16 @@ https://xxxxx/api/meetups
 
 LINEアプリで直接[URL](http://line.me/ti/p/@815sztgc)を開く。
 >    – Tools –
->・PHP 7.3.14
->・Laravel 6.16.0
->・Docker 19.03.7
->・Git 2.21
->・AWS Elastic Beanstalk
->・Route53
->・Certificate Manager
->・LINE Messaging API (Flex Message)
->・Connpass API
->・ngrok
+>・PHP 7.3.14  
+>・Laravel 6.16.0  
+>・Docker 19.03.7  
+>・Git 2.21  
+>・AWS Elastic Beanstalk  
+>・Route53  
+>・Certificate Manager  
+>・LINE Messaging API (Flex Message)  
+>・Connpass API  
+>・ngrok  
 
 ## ・ライセンス
 
