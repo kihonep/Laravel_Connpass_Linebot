@@ -115,7 +115,7 @@ class MeetupBubbleBuilder implements ContainerBuilder
                                         'type' => 'text',
                                         'text' => $this->catch.' ',
                                         'wrap' => true,
-                                        'maxLines'=> 3,
+                                        'maxLines'=> 4,
                                         'color' => '#666666',
                                         'size' => 'xs',
                                         'flex' => 12
