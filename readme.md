@@ -105,7 +105,7 @@ LINEアプリで直接[URL](http://line.me/ti/p/@815sztgc)を開く。
 >・AWS Elastic Beanstalk  
 >・Route53  
 >・Certificate Manager  
->・Identity and Access Management (IAM)
+>・Identity and Access Management (IAM)  
 >・LINE Messaging API (Flex Message)  
 >・Connpass API  
 >・ngrok  
