@@ -108,11 +108,10 @@ LINEアプリで直接[URL](http://line.me/ti/p/@815sztgc)を開く。
 >・ngrok  
 
 ## 参照
-[・ngrok](https://qiita.com/mininobu/items/b45dbc70faedf30f484e)
-[・LINE Messaging API - Flex Message](https://developers.line.biz/ja/docs/messaging-api/message-types/#flex-messages)
+[・ngrok](https://qiita.com/mininobu/items/b45dbc70faedf30f484e)  
+[・LINE Messaging API - Flex Message](https://developers.line.biz/ja/docs/messaging-api/message-types/#flex-messages)  
 [・EB CLI - 手動インストール](https://docs.aws.amazon.com/ja_jp/elasticbeanstalk/latest/dg/eb-cli3-install-advanced.html)  
-[・Elastic Beanstalk - HTTPS 設定](https://aws.amazon.com/jp/premiumsupport/knowledge-center/elastic-beanstalk-https-configuration/)
+[・Elastic Beanstalk - HTTPS 設定](https://aws.amazon.com/jp/premiumsupport/knowledge-center/elastic-beanstalk-https-configuration/)  
 
 ## ・ライセンス
-
 [MIT license](https://opensource.org/licenses/MIT).
