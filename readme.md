@@ -28,7 +28,7 @@ LINE_ACCESS_TOKEN = xxxxx
 ・APP_KEYを作成
 
 <pre>
-$php artisan key:generate
+$ php artisan key:generate
 //base64:xxxxx が生成
 </pre>
 
@@ -54,15 +54,32 @@ LINE_ACCESS_TOKEN - xxxxx
 
 ・Herokuの環境変数にAPP_KEYを設定
 <pre>
-$ heroku config:set APP_KEY=base64: xxxxx -a herokuアプリケーション名
+$ heroku config:set APP_KEY=base64:xxxxx -a herokuアプリケーション名
 </pre>
 
 ## 4b. AWSにデプロイする場合
+・AWSアカウントを作成し、EB CLIのインストール
+<pre>
+$ pip install awsebcli --upgrade --user
+</pre>
 ・EBにデプロイ  
+<pre>
+$ eb init  
+$ eb deploy
+</pre>
+・EBでドキュメントルートの設定
+<pre>
+/public
+//[設定] > [ソフトウェアの更新] > [ドキュメントのルート]
+</pre>
+・環境変数の設定
+<pre>
+APP_KEY - base64:xxxxx
+//[設定] > [ソフトウェア設定] > [環境プロパティ]
+</pre>
 ・Route53でドメインを取得  
 ・Certificate Managerで証明書の生成  
-・ロードバランサーで設定  
-(参考URL)  
+・ロードバランサーで設定
 
 ## 5. LINE Console上でWebhookを設定
 <pre>
@@ -90,6 +107,12 @@ LINEアプリで直接[URL](http://line.me/ti/p/@815sztgc)を開く。
 >・Connpass API  
 >・ngrok  
 
+## 参照
+[・ngrok](https://qiita.com/mininobu/items/b45dbc70faedf30f484e)
+[・LINE Messaging API - Flex Message](https://developers.line.biz/ja/docs/messaging-api/message-types/#flex-messages)
+[・EB CLI - 手動インストール](https://docs.aws.amazon.com/ja_jp/elasticbeanstalk/latest/dg/eb-cli3-install-advanced.html)  
+[・Elastic Beanstalk - HTTPS 設定](https://aws.amazon.com/jp/premiumsupport/knowledge-center/elastic-beanstalk-https-configuration/)
+
 ## ・ライセンス
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+[MIT license](https://opensource.org/licenses/MIT).
