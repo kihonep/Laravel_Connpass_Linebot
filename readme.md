@@ -1,17 +1,17 @@
 <img src="https://user-images.githubusercontent.com/60056670/76921655-e543ae80-6911-11ea-85d4-7524d1fe82b5.jpeg" width="506px">
 
-## ・仕様
+## 仕様
 Connpass APIから情報を取得し、LINE上に表示する勉強会検索用のLINEBOT。
 LINE Messaging APIの仕様上限である10件までの情報を取得。表示する優先度は更新順。
-## ・導入手順
-## 1. LINE Devlopersアカウントを取得
+## 導入手順
+### 1. LINE Devlopersアカウントを取得
 アカウントを[作成](https://business.line.me)する。
 
-## 2. LINE Developersに移動し、アクセストークン等を発行
+### 2. LINE Developersに移動し、アクセストークン等を発行
 
 チャネル基本設定画面でチャネルシークレットを発行し、Messaging API設定画面でチャネルアクセストークンを発行する。
 
-## 3. 各種設定
+### 3. 各種設定
 
 ・.envを作成
 <pre>
@@ -38,7 +38,7 @@ $ ngrok http xxxxx
 //デフォルトは8080
 </pre>
 
-## 4a. Herokuにデプロイする場合
+### 4a. Herokuにデプロイする場合
 
 ・Herokuのアカウントを作成し、アプリを新規作成
 
@@ -57,7 +57,7 @@ LINE_ACCESS_TOKEN - xxxxx
 $ heroku config:set APP_KEY=base64:xxxxx -a herokuアプリケーション名
 </pre>
 
-## 4b. AWSにデプロイする場合
+### 4b. AWSにデプロイする場合
 ・AWSアカウントを[作成](https://aws.amazon.com/jp/register-flow/)し、EB CLIのインストール
 <pre>
 $ pip install awsebcli --upgrade --user
@@ -83,17 +83,18 @@ APP_KEY - base64:xxxxx
 ・Certificate Managerで証明書の生成  
 ・ロードバランサーで設定
 
-## 5. LINE Console上でWebhookを設定
+### 5. LINE Console上でWebhookを設定
+・Herokuの場合の設定
 <pre>
 https://xxxxx.herokuapp.com/api/meetups
-//Heroku
+//[トップ] > [アカウント名] > [チャネル名] > [Messaging API設定]
 </pre>
+・AWSの場合の設定
 <pre>
 https://xxxxx/api/meetups
-//AWS
 </pre>
 
-## ・QRコード
+## QRコード
 ![B909E27D-4072-4F2B-BF49-095F0473CD55](https://user-images.githubusercontent.com/60056670/76936499-64e37480-6936-11ea-9834-92e657e7ca42.jpeg)
 
 LINEアプリで直接[URL](http://line.me/ti/p/@815sztgc)を開く。
@@ -116,5 +117,5 @@ LINEアプリで直接[URL](http://line.me/ti/p/@815sztgc)を開く。
 [・EB CLI - 手動インストール](https://docs.aws.amazon.com/ja_jp/elasticbeanstalk/latest/dg/eb-cli3-install-advanced.html)  
 [・Elastic Beanstalk - HTTPS 設定](https://aws.amazon.com/jp/premiumsupport/knowledge-center/elastic-beanstalk-https-configuration/)  
 
-## ・ライセンス
+## ライセンス
 [MIT license](https://opensource.org/licenses/MIT).
