@@ -58,7 +58,7 @@ $ heroku config:set APP_KEY=base64:xxxxx -a herokuアプリケーション名
 </pre>
 
 ## 4b. AWSにデプロイする場合
-・AWSアカウントを作成し、EB CLIのインストール
+・AWSアカウントを[作成](https://aws.amazon.com/jp/register-flow/)し、EB CLIのインストール
 <pre>
 $ pip install awsebcli --upgrade --user
 </pre>
@@ -70,11 +70,13 @@ $ eb deploy
 ・EBでドキュメントルートの設定
 <pre>
 /public
+
 //[設定] > [ソフトウェアの更新] > [ドキュメントのルート]
 </pre>
 ・環境変数の設定
 <pre>
 APP_KEY - base64:xxxxx
+
 //[設定] > [ソフトウェア設定] > [環境プロパティ]
 </pre>
 ・Route53でドメインを取得  
@@ -103,6 +105,7 @@ LINEアプリで直接[URL](http://line.me/ti/p/@815sztgc)を開く。
 >・AWS Elastic Beanstalk  
 >・Route53  
 >・Certificate Manager  
+>・Identity and Access Management (IAM)
 >・LINE Messaging API (Flex Message)  
 >・Connpass API  
 >・ngrok  
